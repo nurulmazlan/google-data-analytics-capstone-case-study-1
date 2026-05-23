@@ -1,4 +1,4 @@
-# Case Study 1: How does a bike-share navigate speedy success?
+#  Case Study 1: How does a bike-share navigate speedy success?
 
 ### **Introduction**
 
@@ -25,32 +25,38 @@ system anytime.
 
 - Consider key stakeholders:
 
-- - Director of Marketing Lily Moreno: Responsible for the development of campaigns and initiatives to promote the bike-share program.
-- - Marketing Analytics Team: Collecting, analyzing, and reporting data.
-- - Executive Team: In charge of approving the recommended marketing program.
-
-
-**PREPARE**
-
-
-
-
-
-**PROCESS**
-
-
-
-
-**ANALYZE**
+  + Director of Marketing Lily Moreno: Responsible for the development of campaigns and initiatives to promote the bike-share program.
+  
+  + Marketing Analytics Team: Collecting, analyzing, and reporting data.
+  
+  + Executive Team: In charge of approving the recommended marketing program.
+  
+**Deliverables**
+- A clear statement of business task: Identify key factor that will attract casual riders into annual members.
+- Problem statement: How casual riders and annual members use Cyclistic bikes differently?
+- Insight: maximizing the number of annual members
+  
+### **PREPARE**
 
 
 
 
-**SHARE**
+
+### **PROCESS**
 
 
 
 
-**ACT**
+### **ANALYZE**
+
+
+
+
+### **SHARE**
+
+
+
+
+### **ACT**
 
 
