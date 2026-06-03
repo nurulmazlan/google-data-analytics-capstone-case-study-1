@@ -50,6 +50,17 @@ where is your data located
 **Identify how the data is organized**
 how is the data organized
 
+https://divvy-tripdata.s3.amazonaws.com/index.html
+
+Rider id: ride_id
+Bike type: rideable_type
+Start time: started_at
+End time: ended_at
+Member type: member_casual
+
+Start station details: start_lat, start_lng
+End station details: end_lat, end_lng
+
 **Sort and filter the data**
 show some of the process and pic for reference
 
