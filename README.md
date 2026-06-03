@@ -38,22 +38,48 @@ system anytime.
   
 ### **PREPARE**
 
+**Key task**
+- Download data and store it appropriately.
+- Identify how it’s organized.
+- Sort and filter the data.
+- Determine the credibility of the data.
 
+**Download the data and save in a folder**
+where is your data located
 
+**Identify how the data is organized**
+how is the data organized
+
+**Sort and filter the data**
+show some of the process and pic for reference
+
+**Determine data crediblity**
+are there issues bias/credibility in the data
+How are you addressing licensing, privacy, security, and accessibility?
+How did you verify the data’s integrity?
+How does it help you answer your question?
+Are there any problems with the data?
 
 
 ### **PROCESS**
 
+**Key tasks**
+- Check the data for errors.
+- Choose your tools.
+- Transform the data so you can work with it effectively.
+- Document the cleaning process.
+
+**Clean and transform the data**
 
 
 
 ### **ANALYZE**
-
+turn the data you’ve gathered, prepared, and processed into actionable information
 
 
 
 ### **SHARE**
-
+share what you’ve learned with your stakeholders!
 
 
 
