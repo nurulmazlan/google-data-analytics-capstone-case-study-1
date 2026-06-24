@@ -1,3 +1,4 @@
+
 #  Case Study 1: How does a bike-share navigate speedy success?
 
 ### **Introduction**
@@ -44,33 +45,17 @@ system anytime.
 - Sort and filter the data.
 - Determine the credibility of the data.
 
-**Download the data and save in a folder**
-where is your data located
+**1.Download the data and save in a folder**
+**2.Identify how the data is organized**
+**3.sort and filter the data**
 
-**Identify how the data is organized**
-how is the data organized
+- Download the data ( https://divvy-tripdata.s3.amazonaws.com/index.html ). Save it in a folder and make a subfolder for raw data and cleaned data
 
-https://divvy-tripdata.s3.amazonaws.com/index.html
+<img width="731" height="423" alt="Screenshot 2026-06-16 164125" src="https://github.com/user-attachments/assets/b030a142-288c-4f66-93b4-2928d5cd8fb8" />
 
-Rider id: ride_id
-Bike type: rideable_type
-Start time: started_at
-End time: ended_at
-Member type: member_casual
+<img width="766" height="237" alt="Screenshot 2026-06-24 101330" src="https://github.com/user-attachments/assets/3124f7d5-cf32-456d-9421-762ffc8b7527" />
 
-Start station details: start_lat, start_lng
-End station details: end_lat, end_lng
-
-**Sort and filter the data**
-show some of the process and pic for reference
-
-**Determine data crediblity**
-are there issues bias/credibility in the data
-How are you addressing licensing, privacy, security, and accessibility?
-How did you verify the data’s integrity?
-How does it help you answer your question?
-Are there any problems with the data?
-
+#
 
 ### **PROCESS**
 
@@ -81,7 +66,71 @@ Are there any problems with the data?
 - Document the cleaning process.
 
 **Clean and transform the data**
+- Combine all table into one
 
+```sql
+CREATE OR REPLACE TABLE `cyclistic-case-study-489307.Cyclistic_bike_data.Data_for_2021` AS
+
+SELECT * FROM `cyclistic-case-study-489307.Cyclistic_bike_data.Jan2021`
+UNION ALL
+SELECT * FROM `cyclistic-case-study-489307.Cyclistic_bike_data.Feb2021`
+UNION ALL
+SELECT * FROM `cyclistic-case-study-489307.Cyclistic_bike_data.Mar2021`
+UNION ALL
+SELECT * FROM `cyclistic-case-study-489307.Cyclistic_bike_data.Apr2021`
+UNION ALL
+SELECT * FROM `cyclistic-case-study-489307.Cyclistic_bike_data.May2021`
+UNION ALL
+SELECT * FROM `cyclistic-case-study-489307.Cyclistic_bike_data.June2021`
+UNION ALL
+SELECT * FROM `cyclistic-case-study-489307.Cyclistic_bike_data.July2021`
+UNION ALL
+SELECT * FROM `cyclistic-case-study-489307.Cyclistic_bike_data.Aug2021`
+UNION ALL
+SELECT * FROM `cyclistic-case-study-489307.Cyclistic_bike_data.Sept2021`
+UNION ALL
+SELECT * FROM `cyclistic-case-study-489307.Cyclistic_bike_data.Oct2021`
+UNION ALL
+SELECT * FROM `cyclistic-case-study-489307.Cyclistic_bike_data.Nov2021`
+UNION ALL
+SELECT * FROM `cyclistic-case-study-489307.Cyclistic_bike_data.Dec2021`;
+```
+#
+
+- Remove null and fix durations
+
+```sql
+CREATE OR REPLACE TABLE `cyclistic-case-study-489307.Cyclistic_bike_data.Cleaned_data_2021` AS 
+SELECT
+  ride_id,
+  rideable_type,
+  started_at,
+  ended_at,
+  TIMESTAMP_DIFF(ended_at, started_at, MINUTE) AS ride_length_minutes,
+  EXTRACT(DAYOFWEEK FROM started_at) AS day_of_week,
+  member_casual
+FROM
+  `cyclistic-case-study-489307.Cyclistic_bike_data.Data_for_2021`
+WHERE
+  ride_id IS NOT NULL 
+  AND started_at IS NOT NULL 
+  AND ended_at IS NOT NULL
+  AND member_casual IS NOT NULL
+  AND TIMESTAMP_DIFF(ended_at, started_at, MINUTE) >= 1
+  AND TIMESTAMP_DIFF(ended_at, started_at, MINUTE) <= 1440;
+```
+#
+
+**Determine data crediblity**
+are there issues bias/credibility in the data
+How are you addressing licensing, privacy, security, and accessibility?
+How did you verify the data’s integrity?
+How does it help you answer your question?
+Are there any problems with the data?
+
+- Credibility and Bias: The data is reliable, original, comprehensive, current, and cited, provided by Lyft Bikes and Scooters, LLC.
+- Licensing, Privacy, Security, Accessibility: The data is made available by Motivate International Inc. under this license https://www.divvybikes.com/data-license-agreement
+- Data Integrity: The data was examined and verified for consistency in columns and data types.
 
 
 ### **ANALYZE**
