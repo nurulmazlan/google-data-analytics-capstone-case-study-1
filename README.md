@@ -18,7 +18,7 @@ system anytime.
 
 ### **Data analysis process**
 
-### **ASK**
+### **1. ASK**
 
 **Business task**
 
@@ -37,27 +37,36 @@ system anytime.
 - Problem statement: How casual riders and annual members use Cyclistic bikes differently?
 - Insight: maximizing the number of annual members
   
-### **PREPARE**
+### **2. PREPARE**
 
 **Key task**
 - Download data and store it appropriately.
 - Identify how it’s organized.
 - Sort and filter the data.
 - Determine the credibility of the data.
+#
 
-**1.Download the data and save in a folder**
-**2.Identify how the data is organized**
-**3.sort and filter the data**
-
-- Download the data ( https://divvy-tripdata.s3.amazonaws.com/index.html ). Save it in a folder and make a subfolder for raw data and cleaned data
+*Download the data ( https://divvy-tripdata.s3.amazonaws.com/index.html )*
 
 <img width="731" height="423" alt="Screenshot 2026-06-16 164125" src="https://github.com/user-attachments/assets/b030a142-288c-4f66-93b4-2928d5cd8fb8" />
+
+#
+
+*Save it in a folder and make a subfolder for raw data and cleaned data*
 
 <img width="766" height="237" alt="Screenshot 2026-06-24 101330" src="https://github.com/user-attachments/assets/3124f7d5-cf32-456d-9421-762ffc8b7527" />
 
 #
 
-### **PROCESS**
+**Determine data crediblity**
+
+- Credibility and Bias: The data is reliable, original, comprehensive, current, and cited, provided by Lyft Bikes and Scooters, LLC.
+- Licensing, Privacy, Security, Accessibility: The data is made available by Motivate International Inc. under this license https://www.divvybikes.com/data-license-agreement
+- Data Integrity: The data was examined and verified for consistency in columns and data types.
+
+#
+
+### **3. PROCESS**
 
 **Key tasks**
 - Check the data for errors.
@@ -65,8 +74,9 @@ system anytime.
 - Transform the data so you can work with it effectively.
 - Document the cleaning process.
 
-**Clean and transform the data**
-- Combine all table into one
+### **Clean and transform the data**
+
+- *Combine all table into one*
 
 ```sql
 CREATE OR REPLACE TABLE `cyclistic-case-study-489307.Cyclistic_bike_data.Data_for_2021` AS
@@ -97,7 +107,7 @@ SELECT * FROM `cyclistic-case-study-489307.Cyclistic_bike_data.Dec2021`;
 ```
 #
 
-- Remove null and fix durations
+- *Create new table, remove null and fix durations*
 
 ```sql
 CREATE OR REPLACE TABLE `cyclistic-case-study-489307.Cyclistic_bike_data.Cleaned_data_2021` AS 
@@ -121,28 +131,80 @@ WHERE
 ```
 #
 
-**Determine data crediblity**
-are there issues bias/credibility in the data
-How are you addressing licensing, privacy, security, and accessibility?
-How did you verify the data’s integrity?
-How does it help you answer your question?
-Are there any problems with the data?
+### **4. ANALYZE**
 
-- Credibility and Bias: The data is reliable, original, comprehensive, current, and cited, provided by Lyft Bikes and Scooters, LLC.
-- Licensing, Privacy, Security, Accessibility: The data is made available by Motivate International Inc. under this license https://www.divvybikes.com/data-license-agreement
-- Data Integrity: The data was examined and verified for consistency in columns and data types.
+**Key task**
+● Aggregate the data.
+● Organize and format your data.
+● Perform calculations.
+● Identify trends and relationships.
 
+- *Total rides and Average ride length*
 
-### **ANALYZE**
-turn the data you’ve gathered, prepared, and processed into actionable information
+```sql
+SELECT
+  member_casual,
+  COUNT(ride_id) AS total_rides,
+  ROUND(AVG(TIMESTAMP_DIFF(ended_at, started_at, MINUTE)), 2) AS avg_ride_length
+FROM
+`cyclistic-case-study-489307.Cyclistic_bike_data.Cleaned_data_2021`
+GROUP BY
+  member_casual;
+```
+#
 
+- *Weekly ride pattern (Day of the Week)*
 
+```sql
+SELECT
+  member_casual,
+EXTRACT(DAYOFWEEK FROM STARTED_AT) AS day_of_week_numeric,
+FORMAT_TIMESTAMP('%A', started_at) AS day_of_week_name,
+COUNT(ride_id) AS total_rides,
+ROUND(AVG(TIMESTAMP_DIFF(ended_at, started_at, MINUTE)), 2) AS avg_ride_length
+FROM
+  `cyclistic-case-study-489307.Cyclistic_bike_data.Cleaned_data_2021`
+GROUP BY
+  member_casual,
+  day_of_week_numeric,
+  day_of_week_name;
+```
+#
 
-### **SHARE**
-share what you’ve learned with your stakeholders!
+### **5. SHARE**
 
+- Determine the best way to share findings.
+- Create effective data visualizations.
+- Present findings.
+- Ensure work is accessible.
+#
 
+  **Total rides and Average ride length:**
 
-### **ACT**
+<img width="944" height="161" alt="Total ride and Average ride length" src="https://github.com/user-attachments/assets/8a9dc63c-86a6-4ee4-9b7a-773ecb9d54e5" />
 
+#
+
+  **Ride pattern by Day of the Week:**
+
+<img width="945" height="446" alt="Ride pattern by Day of the Week" src="https://github.com/user-attachments/assets/2e42a208-a279-46be-b1d5-707ca107e4c4" />
+
+#
+
+### **Sharing findings:**
+
+**Average ride length by member type:**
++ Casual riders have longer average ride length (26.74 minutes) compared to annual members (13.13 minutes). This show that casual riders may be using the bikes for leisure or longer trips, while annual members likely use them for shorter trips.
+
+**Ride pattern by Day of the Week:**
++ Casual riders have higher ride counts on weekends, especially Saturdays and Sundays. And annual members have a more consistent ride count throughout the week..
+
+#
+
+### **6. ACT**
+
+**Key Tasks**
+- Prepare a comprehensive report with all findings, insights, and visualizations.
+- Create a presentation to share with key stakeholders, ensuring data is accessible and understandable.
+- Use insights gained to make actionable recommendations for the marketing strategy aimed at converting casual riders into annual members.
 
