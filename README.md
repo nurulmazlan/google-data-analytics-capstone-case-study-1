@@ -76,7 +76,7 @@ system anytime.
 
 ### **Clean and transform the data**
 
-- *Combine all table into one*
+ *Combine all table into one*
 
 ```sql
 CREATE OR REPLACE TABLE `cyclistic-case-study-489307.Cyclistic_bike_data.Data_for_2021` AS
@@ -107,7 +107,7 @@ SELECT * FROM `cyclistic-case-study-489307.Cyclistic_bike_data.Dec2021`;
 ```
 #
 
-- *Create new table, remove null and fix durations*
+ *Create new table, remove null and fix durations*
 
 ```sql
 CREATE OR REPLACE TABLE `cyclistic-case-study-489307.Cyclistic_bike_data.Cleaned_data_2021` AS 
@@ -134,12 +134,13 @@ WHERE
 ### **4. ANALYZE**
 
 **Key task**
-● Aggregate the data.
-● Organize and format your data.
-● Perform calculations.
-● Identify trends and relationships.
+- Aggregate the data.
+- Organize and format your data.
+- Perform calculations.
+- Identify trends and relationships.
+#
 
-- *Total rides and Average ride length*
+ *Total rides and Average ride length*
 
 ```sql
 SELECT
@@ -194,10 +195,10 @@ GROUP BY
 ### **Sharing findings:**
 
 **Average ride length by member type:**
-+ Casual riders have longer average ride length (26.74 minutes) compared to annual members (13.13 minutes). This show that casual riders may be using the bikes for leisure or longer trips, while annual members likely use them for shorter trips.
+  + Casual riders have longer average ride length (26.74 minutes) compared to annual members (13.13 minutes). This show that casual riders may be using the bikes for leisure or longer trips, while annual members likely use them for shorter trips.
 
 **Ride pattern by Day of the Week:**
-+ Casual riders have higher ride counts on weekends, especially Saturdays and Sundays. And annual members have a more consistent ride count throughout the week..
+  + Casual riders have higher ride counts on weekends, especially Saturdays and Sundays. And annual members have a more consistent ride count throughout the week..
 
 #
 
@@ -208,12 +209,19 @@ GROUP BY
 - Add your case study.
 - Practice presenting your case study to a friend or family member.
 
-- *Recommendations:*
+ **Recommendations:**
 
 1. Targeted marketing:
- - Since the data show spikes on weekend, create weekend membership with benefits. Through this it will attract more riders who only use it on weekend.
+ - Since the data show spikes on weekend, create weekend membership with benefits. Through this it will attract more riders who only used it on weekend.
  
 2. Targeted location advertisement:
- - 
+ - Place ads near popular spots to gained more subscription for weekend membership.
 
+3. Annual member incentive:
+ - Offer incentive for annual member such as, special promotion during summer and discount 20% after a certain amount of rides to make it more appealing for casual riders.
+
+
+### **Conclusion:**
+
+Introducing targeted weekend passes and alerts at peak leisure stations will successfully convert casual riders into annual subscription.
 
