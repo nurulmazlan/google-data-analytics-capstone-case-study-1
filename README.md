@@ -203,8 +203,17 @@ GROUP BY
 
 ### **6. ACT**
 
-**Key Tasks**
-- Prepare a comprehensive report with all findings, insights, and visualizations.
-- Create a presentation to share with key stakeholders, ensuring data is accessible and understandable.
-- Use insights gained to make actionable recommendations for the marketing strategy aimed at converting casual riders into annual members.
+**Key task**
+- Create your portfolio.
+- Add your case study.
+- Practice presenting your case study to a friend or family member.
+
+- *Recommendations:*
+
+1. Targeted marketing:
+ - Since the data show spikes on weekend, create weekend membership with benefits. Through this it will attract more riders who only use it on weekend.
+ 
+2. Targeted location advertisement:
+ - 
+
 
