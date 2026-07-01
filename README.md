@@ -154,7 +154,7 @@ GROUP BY
 ```
 #
 
-- *Weekly ride pattern (Day of the Week)*
+ *Weekly ride pattern (Day of the Week)*
 
 ```sql
 SELECT
@@ -180,13 +180,15 @@ GROUP BY
 - Ensure work is accessible.
 #
 
-  **Total rides and Average ride length:**
+**Visualization tool: https://public.tableau.com/views/GoogleDataAnalyticsProfessionalCertificateCaseStudy1/Dashboard1**
+
+  *Total rides and Average ride length:*
 
 <img width="944" height="161" alt="Total ride and Average ride length" src="https://github.com/user-attachments/assets/8a9dc63c-86a6-4ee4-9b7a-773ecb9d54e5" />
 
 #
 
-  **Ride pattern by Day of the Week:**
+  *Ride pattern by Day of the Week:*
 
 <img width="945" height="446" alt="Ride pattern by Day of the Week" src="https://github.com/user-attachments/assets/2e42a208-a279-46be-b1d5-707ca107e4c4" />
 
